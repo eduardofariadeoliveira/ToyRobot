@@ -28,7 +28,7 @@ namespace ToyRobot
                 }
                 else
                 {
-                    return "First command must be PLACE";
+                    return MessageWarning("First command must be PLACE");
                 }
             }
 
@@ -41,7 +41,7 @@ namespace ToyRobot
                     }
                     else
                     {
-                        return "Command ignored";
+                        return MessageWarning("Command ignored");
                     }
                     break;
                 case "report":
@@ -56,11 +56,16 @@ namespace ToyRobot
                     SetRight();
                     break;
                 default:
-                    return "Command ignored";
+                    return MessageWarning("Command ignored");
             }
 
             return string.Empty;
 
+        }
+
+        private string MessageWarning(string input)
+        {
+            return string.Format("Warning: {0}", input);
         }
 
         private void SetLeft()
